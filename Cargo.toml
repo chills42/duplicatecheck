@@ -1,0 +1,7 @@
+[package]
+name = "duplicatecheck"
+version = "0.1.0"
+authors = ["Craig Hills <chills@gmail.com>"]
+license = "MIT"
+
+[dependencies]
