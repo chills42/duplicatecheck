@@ -2,9 +2,10 @@ use std::io;
 use std::io::Read;
 use std::fs::{self, DirEntry, File};
 use std::path::Path;
-use std::hash::{Hash, Hasher, SipHasher};
+use std::hash::{Hash, Hasher};
 use std::vec::Vec;
 use std::collections::HashMap;
+use std::collections::hash_map::DefaultHasher;
 use std::cell::RefCell;
 
 fn main() {
@@ -28,7 +29,7 @@ fn main() {
 }
 
 fn hash(p: &Path) -> io::Result<u64> {
-    let mut s = SipHasher::new();
+    let mut s = DefaultHasher::new();
     let mut f = try!(File::open(p));
     loop {
         let mut buffer = [0; 8192];
